@@ -1,0 +1,26 @@
+{
+  "name": "componets",
+  "version": "1.0.0",
+  "description": "components",
+  "main": "exp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JamieMaple/NativeJScomponents.git"
+  },
+  "keywords": [
+    "native"
+  ],
+  "author": "jamie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JamieMaple/NativeJScomponents/issues"
+  },
+  "homepage": "https://github.com/JamieMaple/NativeJScomponents#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
