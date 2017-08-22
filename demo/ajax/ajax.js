@@ -51,22 +51,23 @@ const ajaxObj = {
     xml.send(params.data)
   },
   post(params) {
-    params.data = this._objToString(params.data)
     params = this._init(params)
+    params.data = this._objToString(params.data)
+    
     this._send('post', params)
   },
   get(params) {
+    params = this._init(params)
     let url_query = this._objToString(params.data)
     if (url_query) {
       params.url += '?'+url_query
     } 
     params.data = null
-
-    params = this._init(params)
+    
     this._send('get', params)
   },
   jsonp(params) {
-    
+    params = this._init(params)
     let script = document.createElement('script'),
         url_query = this._objToString(params.data)
         callback = 'JSONP'+new Date().getMinutes()
