@@ -3,17 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <title>ajax demo</title>
+  <style>
+    button {
+      width: 50px;
+    }
+  </style>
 </head>
 <body>
+  <div id="test-get">
+    <button>get</button>
+    <textarea></textarea>
+  </div>
+  <div id="test-post">
+    <button>post</button>
+    <textarea></textarea>
+    </div>
+  <div id="test-jsonp">
+    <button>jsonp</button>
+    <textarea></textarea>
+  </div>
   <script src="./ajax.js"></script>
   <script>
-    jamieAjax({
-      url: 'https://api.douban.com/v2/movie/subject/1764796',
-      type: 'jsonp',
-      success(data) {
-        console.log(data)
-      }
+    var get = document.getElementById('test-get')
+    var post = document.getElementById('test-post')
+    var jsonp = document.getElementById('test-jsonp')
+
+    function textAppend(data, parent) {
+      parent.getElementsByTagName('textarea')[0].innerText=data
+    }
+
+    get.getElementsByTagName('button')[0].addEventListener('click', function() {
+      ajaxObj.get({
+        url: '/test',
+        data: {
+          tag: 33,
+          name: 'jamie一二三'
+        },
+        callback(data) {
+          textAppend(data, get)
+        }
+      })
     })
+    post.getElementsByTagName('button')[0].addEventListener('click', function() {
+      ajaxObj.post({
+        url: '/test',
+        data: {
+          tag: 33,
+          name: 'jamie一二三'
+        },
+        callback(data) {
+          textAppend(data, post)
+        }
+      })
+    })
+    jsonp.getElementsByTagName('button')[0].addEventListener('click', function() {
+      ajaxObj.jsonp({
+        url: 'https://api.douban.com/v2/movie/search',
+        data: { tag:'吉卜力' },
+        callback(data) {
+          textAppend(JSON.stringify(data), jsonp)
+        }
+      })
+    })
+
   </script>
 </body>
 </html>

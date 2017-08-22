@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/JamieMaple/NativeJScomponents#readme",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.4"
   }
 }
